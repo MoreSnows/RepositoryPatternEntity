@@ -21,5 +21,10 @@ namespace RepositoryPatternEntity.Repositories
         {
             await _repository.AddAsync(usuario);
         }
+
+        public async Task GetById(Usuario usuario)
+        {
+            await _repository.GetAsync(it => it.Id == usuario.Id);
+        }
     }
 }

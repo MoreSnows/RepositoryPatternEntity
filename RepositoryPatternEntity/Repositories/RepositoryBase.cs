@@ -29,7 +29,7 @@ namespace RepositoryPatternEntity.Repositories
             return await query.ToListAsync();
         }
 
-        public async Task<TEntity> ObterPorIdAsync(Guid id)
+        public async Task<TEntity> GetByIdAsync(Guid id)
         {
             return await _DbSet.FindAsync(id);
         }
@@ -40,13 +40,13 @@ namespace RepositoryPatternEntity.Repositories
             await _AppDbContext.SaveChangesAsync();
         }
 
-        public async Task DeletarAsync(TEntity entity)
+        public async Task DeleteAsync(TEntity entity)
         {
             _DbSet.Remove(entity);
             await _AppDbContext.SaveChangesAsync();
         }
 
-        public async Task Atualizar(TEntity entity)
+        public async Task Update(TEntity entity)
         {
             _DbSet.Update(entity);
             await _AppDbContext.SaveChangesAsync();
